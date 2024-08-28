@@ -189,6 +189,11 @@
 			"{class: wlan_pdc, ss: bb, res: s4j.v, enable: 1}",
 			"{class: wlan_pdc, ss: bb, res: s4j.v, upval: 932}",
 			"{class: wlan_pdc, ss: bb, res: s4j.v, dwnval: 444}";
+
+		/* cpu mask used for wlan tx rx interrupt affinity
+		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
+		 */
+		wlan-txrx-intr-cpumask = <0x3 0x30>;
 	};
 };
 
@@ -204,7 +209,7 @@
 
 		cnss_pci0_iommu_region_partition: cnss_pci0_iommu_region_partition {
 			/* address-cells =3 size-cells=2 from sun-pcie.dtsi */
-			iommu-addresses = <&cnss_pci0 0x0 0x0 0x0 0x0 0xa0000000>,
+			iommu-addresses = <&cnss_pci0 0x0 0x0 0x0 0x0 0x98000000>,
 					  <&cnss_pci0 0x0 0x0 0xB0000000 0x0 0x50000000>;
 			};
 
