@@ -4,7 +4,7 @@
  * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
  */
 
-#include <dt-bindings/interconnect/qcom,sun.h>
+#include <dt-bindings/interconnect/qcom,canoe.h>
 
 &tlmm {
 	cnss_pins {
@@ -49,6 +49,19 @@
 				function = "wcn_sw";
 			};
 		};
+
+		cnss_host_sol_default: cnss_host_sol_default {
+			mux {
+				pins = "gpio202";
+				function = "gpio";
+			};
+
+			config {
+				pins = "gpio202";
+				drive-strength = <4>;
+				bias-pull-down;
+			};
+		};
 	};
 };
 
@@ -63,24 +76,27 @@
 };
 
 &soc {
-	wlan_kiwi: qcom,cnss-kiwi@b0000000 {
-		compatible = "qcom,cnss-kiwi";
+	wlan_peach: qcom,cnss-peach@b0000000 {
+		compatible = "qcom,cnss-peach";
 		reg = <0xb0000000 0x10000>;
 		reg-names = "smmu_iova_ipa";
 		qcom,wlan-sw-ctrl-gpio = <&tlmm 19 0>;
 
-		supported-ids = <0x1107>;
+		supported-ids = <0x110E>;
 		wlan-en-gpio = <&tlmm 16 0>;
 		qcom,bt-en-gpio = <&pm8550vs_f_gpios 3 0>;
 		qcom,sw-ctrl-gpio = <&tlmm 18 0>;
+		wlan-host-sol-gpio = <&tlmm 202 0>;
+		wlan-dev-sol-gpio = <&tlmm 203 0>;
 		/* List of GPIOs to be setup for interrupt wakeup capable */
 		mpm_wake_set_gpios = <18 19>;
 		pinctrl-names = "wlan_en_active", "wlan_en_sleep", "sw_ctrl",
-				"sw_ctrl_wl_cx";
+				"sw_ctrl_wl_cx", "sol_default";
 		pinctrl-0 = <&cnss_wlan_en_active>;
 		pinctrl-1 = <&cnss_wlan_en_sleep>;
 		pinctrl-2 = <&cnss_wlan_sw_ctrl>;
 		pinctrl-3 = <&cnss_wlan_sw_ctrl_wl_cx>;
+		pinctrl-4 = <&cnss_host_sol_default>;
 		qcom,wlan;
 		qcom,wlan-rc-num = <0>;
 		qcom,wlan-ramdump-dynamic = <0x780000>;
@@ -90,23 +106,22 @@
 		qcom,same-dt-multi-dev;
 		/* For AOP communication, use direct QMP instead of mailbox */
 		qcom,qmp = <&aoss_qmp>;
+		msix-match-addr = <0x3000>;
 
 		vdd-wlan-io-supply = <&L3F>;
 		qcom,vdd-wlan-io-config = <1800000 1800000 30000 0 1>;
 		vdd-wlan-io12-supply = <&L2F>;
 		qcom,vdd-wlan-io12-config = <1200000 1200000 30000 0 1>;
-		vdd-wlan-supply = <&S4J>;
-		qcom,vdd-wlan-config = <932000 1000000 0 0 1>;
 		vdd-wlan-aon-supply = <&S4D>;
-		qcom,vdd-wlan-aon-config = <976000 1036000 0 0 1>;
-		vdd-wlan-dig-supply = <&S1D>;
-		qcom,vdd-wlan-dig-config = <916000 1100000 0 0 1>;
+		qcom,vdd-wlan-aon-config = <876000 1036000 0 0 1>;
+		vdd-wlan-dig-supply = <&S4J>;
+		qcom,vdd-wlan-dig-config = <876000 1000000 0 0 1>;
 		vdd-wlan-rfa1-supply = <&S3G>;
-		qcom,vdd-wlan-rfa1-config = <1864000 2000000 0 0 1>;
+		qcom,vdd-wlan-rfa1-config = <1860000 2000000 0 0 1>;
 		vdd-wlan-rfa2-supply = <&S7I>;
-		qcom,vdd-wlan-rfa2-config = <1316000 1340000 0 0 1>;
+		qcom,vdd-wlan-rfa2-config = <1312000 1340000 0 0 1>;
 		vdd-wlan-ant-share-supply = <&L6K>;
-		qcom,vdd-wlan-ant-share-config = <1800000 1800000 0 0 1>;
+		qcom,vdd-wlan-ant-share-config = <1800000 1860000 0 0 1>;
 
 		interconnects =
 		<&pcie_noc MASTER_PCIE_0 &pcie_noc SLAVE_ANOC_PCIE_GEM_NOC>,
@@ -155,40 +170,28 @@
 		<7500 2188800>;
 
 		qcom,vreg_pdc_map =
-			"s4j", "bb",
+			"s4j", "rf",
 			"s4d", "bb",
 			"s3g", "rf",
-			"s7i", "rf",
-			"s1d", "rf";
+			"s7i", "rf";
 
 		qcom,pmu_vreg_map =
-			"VDD095_MX_PMU", "s4d",
-			"VDD095_PMU", "s4j",
-			"VDD_PMU_AON_I", "s1d",
-			"VDD095_PMU_BT", "s1d",
-			"VDD09_PMU_RFA_I", "s1d",
-			"VDD13_PMU_PCIE_I", "s7i",
-			"VDD13_PMU_RFA_I", "s7i",
-			"VDD19_PMU_PCIE_I", "s3g",
-			"VDD19_PMU_RFA_I", "s3g";
+			"VDDD_AON_0P9", "s4j",
+			"VDDA_RFA_1P9", "s3g",
+			"VDDA_RFA_1P3", "s7i",
+			"VDDA_RFA_0P9", "s4j",
+			"VDDD_WLMX_0P9", "s4d",
+			"VDDD_WLCX_0P9", "s4j",
+			"VDDD_BTCX_0P9", "s4j",
+			"VDDD_BTCMX_0P9", "s4j",
+			"VDDA_PCIE_1P2", "s7i",
+			"VDDA_PCIE_0P9", "s7i";
 
 		qcom,pdc_init_table =
-			"{class: wlan_pdc, ss: rf, res: s3g.v, upval: 1856}",
-			"{class: wlan_pdc, ss: rf, res: s3g.v, dwnval: 1844}",
-			"{class: wlan_pdc, ss: rf, res: s7i.v, upval: 1316}",
-			"{class: wlan_pdc, ss: rf, res: s7i.v, dwnval: 972}",
-			"{class: wlan_pdc, ss: rf, res: s1d.m, enable: 1}",
-			"{class: wlan_pdc, ss: rf, res: s1d.v, enable: 1}",
-			"{class: wlan_pdc, ss: rf, res: s1d.v, upval: 916}",
-			"{class: wlan_pdc, ss: rf, res: s1d.v, dwnval: 880}",
-			"{class: wlan_pdc, ss: rf, res: s4j.m, enable: 0}",
-			"{class: wlan_pdc, ss: rf, res: s4j.v, enable: 0}",
-			"{class: wlan_pdc, ss: bb, res: s4d.v, upval: 976}",
-			"{class: wlan_pdc, ss: bb, res: s4d.v, dwnval: 536}",
-			"{class: wlan_pdc, ss: bb, res: s4j.m, enable: 1}",
-			"{class: wlan_pdc, ss: bb, res: s4j.v, enable: 1}",
-			"{class: wlan_pdc, ss: bb, res: s4j.v, upval: 932}",
-			"{class: wlan_pdc, ss: bb, res: s4j.v, dwnval: 444}";
+			"{class: wlan_pdc, ss: rf, res: s4j.m, enable: 1}",
+			"{class: wlan_pdc, ss: rf, res: s4j.v, enable: 1}",
+			"{class: wlan_pdc, ss: rf, res: s4j.v, upval: 876}",
+			"{class: wlan_pdc, ss: rf, res: s4j.v, dwnval: 876}";
 
 		/* cpu mask used for wlan tx rx interrupt affinity
 		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
@@ -198,28 +201,15 @@
 };
 
 &pcie0_rp {
-
 	cnss_pci0: cnss_pci0 {
 		reg = <0 0 0 0 0>;
-		qcom,iommu-group = <&cnss_pci_iommu_group0>;
+		qcom,iommu-group = <&cnss_audio_iommu_group0>;
 		memory-region = <&cnss_wlan_mem &cnss_pci0_iommu_region_partition>;
-
-		#address-cells = <1>;
-		#size-cells = <1>;
 
 		cnss_pci0_iommu_region_partition: cnss_pci0_iommu_region_partition {
 			/* address-cells =3 size-cells=2 from sun-pcie.dtsi */
-			iommu-addresses = <&cnss_pci0 0x0 0x0 0x0 0x0 0x98000000>,
+			iommu-addresses = <&cnss_pci0 0x0 0x0 0x0 0x0 0x18000000>,
 					  <&cnss_pci0 0x0 0x0 0xB0000000 0x0 0x50000000>;
-			};
-
-		cnss_pci_iommu_group0: cnss_pci_iommu_group0 {
-			qcom,iommu-msi-size = <0x1000>;
-			qcom,iommu-geometry = <0x98000000 0x18010000>;
-			qcom,iommu-dma = "fastmap";
-			qcom,iommu-pagetable = "coherent";
-			qcom,iommu-faults = "stall-disable", "HUPCF",
-					    "non-fatal";
 		};
 	};
 };
