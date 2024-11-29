@@ -5,7 +5,7 @@
  */
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
-#include <dt-bindings/interconnect/qcom,tuna.h>
+#include <dt-bindings/interconnect/qcom,kera.h>
 
 &soc {
 	qcom,smp2p-wpss {
@@ -35,6 +35,10 @@
 			qcom,entry-name = "wlan_ep_power_save";
 			#qcom,smem-state-cells = <1>;
 		};
+	};
+
+	wpss_pas: remoteproc-wpss@97000000 {
+		firmware-name = "wcn7750/wpss.mdt";
 	};
 
 	icnss2: qcom,wcn7750 {
