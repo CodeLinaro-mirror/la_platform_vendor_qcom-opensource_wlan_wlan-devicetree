@@ -69,6 +69,10 @@ dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
 dtbo-y += sa8255p-vm-cnss.dtbo
 endif
 
+ifeq ($(TARGET_SUPPORT),sa510m)
+dtbo-y += sa510m-cnss.dtbo
+endif
+
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
