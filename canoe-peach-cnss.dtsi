@@ -107,6 +107,7 @@
 		/* For AOP communication, use direct QMP instead of mailbox */
 		qcom,qmp = <&aoss_qmp>;
 		msix-match-addr = <0x3000>;
+		platform-name-required;
 
 		vdd-wlan-aon-supply = <&L2G>;
 		qcom,vdd-wlan-aon-config = <1800000 1800000 30000 0 1>;
@@ -121,7 +122,7 @@
 		vdd-wlan-rfa2-supply = <&S7F>;
 		qcom,vdd-wlan-rfa2-config = <1328000 1340000 0 0 1>;
 		vdd-wlan-ant-share-supply = <&L3K>;
-		qcom,vdd-wlan-ant-share-config = <1200000 1200000 0 0 1>;
+		qcom,vdd-wlan-ant-share-config = <1200000 1200000 25 0 1>;
 
 		interconnects =
 		<&pcie_noc MASTER_PCIE_0 &pcie_noc SLAVE_ANOC_PCIE_GEM_NOC>,
@@ -170,22 +171,26 @@
 		<7500 2188800>;
 
 		qcom,vreg_pdc_map =
-			"s1j", "bb",
-			"s2j", "rf",
-			"s7f", "rf",
-			"s8f", "rf";
+			"S1J1", "bb",
+			"S2J1", "rf",
+			"S7F0", "rf",
+			"S8F0", "rf";
 
 		qcom,pmu_vreg_map =
-			"VDD_PMU_AON_I", "s2j",
-			"VDD09_PMU_RFA_I", "s2j",
-			"VDD19_PMU_RFA_I", "s8f",
-			"VDD13_PMU_RFA_I", "s7f",
-			"VDD095_MX_PMU", "s2j",
-			"VDD095_PMU_CX", "s1j",
-			"VDD095_PMU_BTCX", "s2j",
-			"VDD095_PMU_BTMX", "s2j",
-			"VDD13_PMU_PCIE_I", "s7f",
-			"VDD13_PMU_PCIE12_I", "s7f";
+			"VDDD_AON_0P9", "S2J1",
+			"VDDA_RFA_0P9", "S2J1",
+			"VDDA_RFA_1P9", "S8F0",
+			"VDDA_RFA_1P3", "S7F0",
+			"VDDD_WLMX_0P9", "S2J1",
+			"VDDD_WLCX_0P9", "S1J1",
+			"VDDD_BTCX_0P9", "S2J1",
+			"VDDD_BTCMX_0P9", "S2J1",
+			"VDDA_PCIE_0P9", "S7F0",
+			"VDDA_PCIE_1P2", "S7F0";
+
+		qcom,pdc_mode_vote_table =
+			" {class: wlan_pdc, ss: rf, res: L3K1.m, enable: 1}",
+			" {class: wlan_pdc, ss: rf, res: L3K1.m, dwnval: 2}";
 
 		/* cpu mask used for wlan tx rx interrupt affinity
 		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
