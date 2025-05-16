@@ -107,6 +107,7 @@
 		/* For AOP communication, use direct QMP instead of mailbox */
 		qcom,qmp = <&aoss_qmp>;
 		msix-match-addr = <0x3000>;
+		platform-name-required;
 
 		vdd-wlan-aon-supply = <&L2G>;
 		qcom,vdd-wlan-aon-config = <1800000 1800000 30000 0 1>;
@@ -186,6 +187,10 @@
 			"VDDD_BTCMX_0P9", "S2J1",
 			"VDDA_PCIE_0P9", "S7F0",
 			"VDDA_PCIE_1P2", "S7F0";
+
+		qcom,pdc_mode_vote_table =
+			" {class: wlan_pdc, ss: rf, res: L3K1.m, enable: 1}",
+			" {class: wlan_pdc, ss: rf, res: L3K1.m, dwnval: 2}";
 
 		/* cpu mask used for wlan tx rx interrupt affinity
 		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
