@@ -22,6 +22,8 @@
 		power-domains = <&scmi_power 20>, <&scmi_power 23>;
 		power-domain-names = "wlan_ldo", "wlan_gpio";
 
+		status = "disabled";
+
 		chip_cfg@0 {
 			supported-ids = <0x1101>;
 			qcom,wlan-ramdump-dynamic = <0x400000>;
