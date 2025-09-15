@@ -1,3 +1,7 @@
+ifeq ($(CONFIG_ARCH_X1P42100),y)
+dtbo-y += x1p42100-kiwi-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_CANOE),y)
 dtbo-y += canoe-kiwi-cnss.dtbo
 dtbo-y += canoe-peach-cnss.dtbo
@@ -88,6 +92,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_YUPIK),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
+dtbo-y += lahaina-qca6750-cnss.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)
