@@ -41,6 +41,8 @@ ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
 dtbo-y += ravelin-atp-adrastea.dtbo
+dtbo-y += ravelin-qca6490-cnss.dtbo
+dtbo-y += ravelin-qca6750-icnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PARROT),y)
