@@ -1,3 +1,7 @@
+ifeq ($(CONFIG_ARCH_SDXECHO),y)
+dtbo-y += sdxecho-fig-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_X1P42100),y)
 dtbo-y += x1p42100-kiwi-cnss.dtbo
 endif
@@ -41,6 +45,8 @@ ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
 dtbo-y += ravelin-atp-adrastea.dtbo
+dtbo-y += ravelin-qca6490-cnss.dtbo
+dtbo-y += ravelin-qca6750-icnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PARROT),y)
@@ -99,3 +105,8 @@ endif
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
+
+ifeq ($(CONFIG_ARCH_SDXECHO),y)
+%.dtbo: %.dts
+	$(DTC) -O dtb -o $@ -b 0 -@ $<
+endif
