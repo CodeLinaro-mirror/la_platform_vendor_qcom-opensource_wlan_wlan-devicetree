@@ -1,3 +1,7 @@
+ifeq ($(CONFIG_ARCH_SDXECHO),y)
+dtbo-y += sdxecho-fig-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_X1P42100),y)
 dtbo-y += x1p42100-kiwi-cnss.dtbo
 endif
@@ -85,6 +89,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_SERAPH),y)
 dtbo-y += seraph-peach-cnss.dtbo
+dtbo-y += seraph-advance-peach-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
@@ -94,8 +99,14 @@ endif
 
 ifeq ($(CONFIG_ARCH_YUPIK),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
+dtbo-y += lahaina-qca6750-cnss.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
+
+ifeq ($(CONFIG_ARCH_SDXECHO),y)
+%.dtbo: %.dts
+	$(DTC) -O dtb -o $@ -b 0 -@ $<
+endif
