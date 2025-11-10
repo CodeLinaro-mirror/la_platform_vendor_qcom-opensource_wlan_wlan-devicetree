@@ -1,3 +1,7 @@
+ifeq ($(CONFIG_ARCH_SDXECHO),y)
+dtbo-y += sdxecho-fig-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_X1P42100),y)
 dtbo-y += x1p42100-kiwi-cnss.dtbo
 endif
@@ -6,6 +10,8 @@ ifeq ($(CONFIG_ARCH_CANOE),y)
 dtbo-y += canoe-kiwi-cnss.dtbo
 dtbo-y += canoe-peach-cnss.dtbo
 dtbo-y += canoep-hdk-peach-cnss.dtbo
+dtbo-y += canoe-cdp-kiwi-no-l3k.dtbo
+dtbo-y += canoe-cdp-peach-no-l3k.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR),y)
@@ -41,6 +47,8 @@ ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
 dtbo-y += ravelin-atp-adrastea.dtbo
+dtbo-y += ravelin-qca6490-cnss.dtbo
+dtbo-y += ravelin-qca6750-icnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PARROT),y)
@@ -57,6 +65,7 @@ endif
 ifeq ($(CONFIG_ARCH_VOLCANO),y)
 dtbo-y += volcano-qca6750.dtbo
 dtbo-y += volcano6i-peach-cnss.dtbo
+dtbo-y += volcano-wcn6450.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_TUNA),y)
@@ -83,6 +92,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_SERAPH),y)
 dtbo-y += seraph-peach-cnss.dtbo
+dtbo-y += seraph-advance-peach-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
@@ -95,6 +105,15 @@ dtbo-y += lahaina-qca6490-cnss.dtbo
 dtbo-y += lahaina-qca6750-cnss.dtbo
 endif
 
+ifeq ($(TARGET_SUPPORT),sa525m)
+dtbo-y += sa525m-cnss.dtbo
+endif
+
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
+
+ifeq ($(CONFIG_ARCH_SDXECHO),y)
+%.dtbo: %.dts
+	$(DTC) -O dtb -o $@ -b 0 -@ $<
+endif
