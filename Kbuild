@@ -65,6 +65,7 @@ endif
 ifeq ($(CONFIG_ARCH_VOLCANO),y)
 dtbo-y += volcano-qca6750.dtbo
 dtbo-y += volcano6i-peach-cnss.dtbo
+dtbo-y += volcano-wcn6450.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_TUNA),y)
@@ -102,6 +103,10 @@ endif
 ifeq ($(CONFIG_ARCH_YUPIK),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
 dtbo-y += lahaina-qca6750-cnss.dtbo
+endif
+
+ifeq ($(TARGET_SUPPORT),sa525m)
+dtbo-y += sa525m-cnss.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)
