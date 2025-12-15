@@ -69,6 +69,7 @@ dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
 dtbo-y += lemans-gh-vm-cnss.dtbo
 dtbo-y += sa8255p-vm-cnss.dtbo
 dtbo-y += monaco-vm-cnss.dtbo
+dtbo-y += lemans-vm-cnss.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa510m)
