@@ -46,6 +46,7 @@
 
 		chip_cfg@3 {
 			supported-ids = <0x1107>;
+			qcom,qrtr_node_id = <0x10>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
 		};
 	};
@@ -57,7 +58,7 @@
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x2000000>;
+		size = <0x0 0x4000000>;
 	};
 };
 
