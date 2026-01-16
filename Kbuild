@@ -55,6 +55,7 @@ dtbo-y += sun-kiwi-cnss-v8.dtbo
 dtbo-y += sun-peach-cnss.dtbo
 dtbo-y += sun-peach-cnss-v8.dtbo
 dtbo-y += sunp-hdk-peach-cnss-v8.dtbo
+dtbo-y += sunp-rcm-peach-cnss-v8.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PINEAPPLE),y)
@@ -119,6 +120,7 @@ dtbo-y += seraph-advance-peach-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
+dtbo-y += sa8797p-sdp8-vm-cnss.dtbo
 dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
 dtbo-y += sa8255p-vm-cnss.dtbo
 dtbo-y += lemans-gh-vm-cnss.dtbo
