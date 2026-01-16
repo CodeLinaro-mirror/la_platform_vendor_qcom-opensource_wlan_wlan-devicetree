@@ -1,3 +1,14 @@
+ifeq ($(CONFIG_ARCH_ART),y)
+dtbo-y += art-atp-fig.dtbo
+dtbo-y += art-cdp-fig.dtbo
+dtbo-y += art-mtp-fig.dtbo
+dtbo-y += art-mtp-peach.dtbo
+dtbo-y += art-omtp-fig.dtbo
+dtbo-y += art-qrd-fig.dtbo
+dtbo-y += art-rcm-fig.dtbo
+dtbo-y += art-rcm-peach.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SDXECHO),y)
 dtbo-y += sdxecho-fig-cnss.dtbo
 endif
@@ -10,6 +21,8 @@ ifeq ($(CONFIG_ARCH_CANOE),y)
 dtbo-y += canoe-kiwi-cnss.dtbo
 dtbo-y += canoe-peach-cnss.dtbo
 dtbo-y += canoep-hdk-peach-cnss.dtbo
+dtbo-y += canoe-cdp-kiwi-no-l3k.dtbo
+dtbo-y += canoe-cdp-peach-no-l3k.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_ALOR),y)
@@ -22,6 +35,14 @@ dtbo-y += alor-cdp-peach.dtbo
 dtbo-y += alor-mtp-peach.dtbo
 dtbo-y += alor-qrd-peach.dtbo
 dtbo-y += alor-rcm-peach.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_CHORA),y)
+dtbo-y += chora-atp-wcn6450.dtbo
+dtbo-y += chora-cdp-wcn6450.dtbo
+dtbo-y += chora-mtp-wcn6450.dtbo
+dtbo-y += chora-qrd-wcn6450.dtbo
+dtbo-y += chora-rcm-wcn6450.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SUN),y)
@@ -63,6 +84,7 @@ endif
 ifeq ($(CONFIG_ARCH_VOLCANO),y)
 dtbo-y += volcano-qca6750.dtbo
 dtbo-y += volcano6i-peach-cnss.dtbo
+dtbo-y += volcano-wcn6450.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_TUNA),y)
@@ -100,6 +122,14 @@ endif
 ifeq ($(CONFIG_ARCH_YUPIK),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
 dtbo-y += lahaina-qca6750-cnss.dtbo
+endif
+
+ifeq ($(TARGET_SUPPORT),sa525m)
+dtbo-y += sa525m-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_KHAJE),y)
+dtbo-y += khaje-cnss.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)
