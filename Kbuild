@@ -7,6 +7,12 @@ dtbo-y += art-omtp-fig.dtbo
 dtbo-y += art-qrd-fig.dtbo
 dtbo-y += art-rcm-fig.dtbo
 dtbo-y += art-rcm-peach.dtbo
+dtbo-y += arth-mtp-fig.dtbo
+dtbo-y += arth-cdp-fig.dtbo
+dtbo-y += arth-rcm-fig.dtbo
+dtbo-y += artl-mtp-fig.dtbo
+dtbo-y += artl-mtp-peach.dtbo
+dtbo-y += artl-qrd-fig.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SDXECHO),y)
@@ -55,6 +61,7 @@ dtbo-y += sun-kiwi-cnss-v8.dtbo
 dtbo-y += sun-peach-cnss.dtbo
 dtbo-y += sun-peach-cnss-v8.dtbo
 dtbo-y += sunp-hdk-peach-cnss-v8.dtbo
+dtbo-y += sunp-rcm-peach-cnss-v8.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PINEAPPLE),y)
@@ -119,15 +126,17 @@ dtbo-y += seraph-advance-peach-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
+dtbo-y += sa8797p-sdp8-vm-cnss.dtbo
 dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
+dtbo-y += sa8255p-vm-cnss.dtbo
 dtbo-y += lemans-gh-vm-cnss.dtbo
 dtbo-y += monaco-vm-cnss.dtbo
 dtbo-y += lemans-vm-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_YUPIK),y)
-dtbo-y += lahaina-qca6490-cnss.dtbo
-dtbo-y += lahaina-qca6750-cnss.dtbo
+dtbo-y += yupik-qca6490-cnss.dtbo
+dtbo-y += yupik-qca6750-cnss.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
@@ -138,11 +147,25 @@ ifeq ($(CONFIG_ARCH_KHAJE),y)
 dtbo-y += khaje-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_BENGAL),y)
+dtbo-y += bengal-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_MONACO),y)
+dtbo-y += monaco-cnss.dtbo
+dtbo-y += monaco-standalone-cnss.dtbo
+endif
+
+ifeq ($(TARGET_SUPPORT),sa510m)
+dtbo-y += sa510m-cnss.dtbo
+endif
+
 always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
 
 ifeq ($(CONFIG_ARCH_SDXECHO),y)
+DTC ?= $(objtree)/scripts/dtc/dtc
 %.dtbo: %.dts
 	$(DTC) -O dtb -o $@ -b 0 -@ $<
 endif
