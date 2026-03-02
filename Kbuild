@@ -105,6 +105,18 @@ dtbo-y += parrot-idp-wcn6755.dtbo
 dtbo-y += parrot-qrd-wcn6755.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_PEBBLE),y)
+dtbo-y += pebble-atp-fig.dtbo
+dtbo-y += pebble-cdp-fig.dtbo
+dtbo-y += pebble-mtp-fig.dtbo
+dtbo-y += pebble-qrd-fig.dtbo
+dtbo-y += pebble-rcm-fig.dtbo
+dtbo-y += pebble-cdp-wcn7750.dtbo
+dtbo-y += pebble-mtp-wcn7750.dtbo
+dtbo-y += pebble-qrd-wcn7750.dtbo
+dtbo-y += pebble-rcm-wcn7750.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_VOLCANO),y)
 dtbo-y += volcano-qca6750.dtbo
 dtbo-y += volcano6i-peach-cnss.dtbo
