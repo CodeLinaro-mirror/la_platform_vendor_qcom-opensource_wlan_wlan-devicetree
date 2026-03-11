@@ -8,6 +8,8 @@ dtbo-y += art-qrd-fig.dtbo
 dtbo-y += art-rcm-fig.dtbo
 dtbo-y += art-rcm-peach.dtbo
 dtbo-y += arth-mtp-fig.dtbo
+dtbo-y += arth-cdp-fig.dtbo
+dtbo-y += arth-rcm-fig.dtbo
 dtbo-y += artl-mtp-fig.dtbo
 dtbo-y += artl-mtp-peach.dtbo
 dtbo-y += artl-qrd-fig.dtbo
@@ -133,8 +135,8 @@ dtbo-y += lemans-vm-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_YUPIK),y)
-dtbo-y += lahaina-qca6490-cnss.dtbo
-dtbo-y += lahaina-qca6750-cnss.dtbo
+dtbo-y += yupik-qca6490-cnss.dtbo
+dtbo-y += yupik-qca6750-cnss.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
