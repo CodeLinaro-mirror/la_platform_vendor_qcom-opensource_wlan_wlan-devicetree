@@ -75,6 +75,9 @@ endif
 
 ifeq ($(CONFIG_ARCH_X1E80100),y)
 dtbo-y += x1e80100-kiwi-cnss.dtbo
+dtbo-y += x1e80100-kiwi-qcb-cnss.dtbo
+dtbo-y += x1e80100-kiwi-qcp-cnss.dtbo
+dtbo-y += hamoa_la-kiwi-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
@@ -127,6 +130,7 @@ endif
 ifeq ($(CONFIG_ARCH_SERAPH),y)
 dtbo-y += seraph-peach-cnss.dtbo
 dtbo-y += seraph-advance-peach-cnss.dtbo
+dtbo-y += seraph-qar-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
