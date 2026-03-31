@@ -1,6 +1,7 @@
 ifeq ($(CONFIG_ARCH_ART),y)
 dtbo-y += art-atp-fig.dtbo
 dtbo-y += art-cdp-fig.dtbo
+dtbo-y += art-cdp-peach.dtbo
 dtbo-y += art-mtp-fig.dtbo
 dtbo-y += art-mtp-peach.dtbo
 dtbo-y += art-omtp-fig.dtbo
