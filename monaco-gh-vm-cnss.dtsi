@@ -7,18 +7,34 @@
 &soc {
 	cnss_pcie: qcom,cnss-qca-converged {
 		compatible = "qcom,cnss-qca-converged";
-		qcom,wlan-rc-num = <2>;
+		qcom,wlan-rc-num = <0>;
 		qcom,wlan;
 		qcom,multi-wlan-exchg;
-		qcom,bus-type = <0>;
+		qcom,bus-type=<0>;
 		qcom,notify-modem-status;
 		firmware-managed-resources;
+		gunyah-hypervisor;
 
-		#address-cells = <1>;
-		#size-cells = <1>;
+		#address-cells=<1>;
+		#size-cells=<1>;
 		ranges = <0xb0000000 0xb0000000 0x10000>;
 
-		power-domains = <&scmi_power 5>, <&scmi_power 11>;
+		/*
+		 * WLAN and BT power supplies are controlled by PMIC GPIOs,
+		 * not through the standard Linux regulator framework.
+		 *
+		 * Although WLAN and BT share the same physical regulator,
+		 * they were previously assigned to separate SCMI power
+		 * domains. Since GearVM does not provide a voting mechanism
+		 * for PMIC GPIO operations, disabling BT could de-assert
+		 * the PMIC GPIO and unintentionally remove power from WLAN,
+		 * resulting in a PCIe link down.
+		 *
+		 * Assign WLAN and BT to the same regulator power domain
+		 * (<&scmi_power 8>) so that the genpd framework can provide
+		 * proper power voting from the kernel layer.
+		 */
+		power-domains = <&scmi_power 8>, <&scmi_power 7>;
 		power-domain-names = "wlan_ldo", "wlan_gpio";
 
 		chip_cfg@0 {
@@ -37,15 +53,11 @@
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 			qcom,no-bwscale;
 			qcom,sleep-clk-support;
-			qcom,set-wlaon-pwr-ctrl;
-			qcom,wlaon-pwr-ctrl-otp-supported;
 		};
 
 		chip_cfg@3 {
 			supported-ids = <0x1107>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
-			qcom,set-wlaon-pwr-ctrl;
-			qcom,wlaon-pwr-ctrl-otp-supported;
 		};
 	};
 };
@@ -60,11 +72,11 @@
 	};
 };
 
-&pcie2 {
-	pcie2_rp: pcie2_rp {
+&pcie0 {
+	pcie0_rp: pcie0_rp {
 		reg = <0 0 0 0 0>;
-		#address-cells = <3>;
-		#size-cells = <2>;
+		#address-cells = <5>;
+		#size-cells = <0>;
 		cnss_pci: cnss_pci {
 			reg = <0 0 0 0 0>;
 			memory-region = <&cnss_wlan_mem>;
