@@ -7,16 +7,17 @@ dtbo-y += art-omtp-fig.dtbo
 dtbo-y += art-qrd-fig.dtbo
 dtbo-y += art-rcm-fig.dtbo
 dtbo-y += art-rcm-peach.dtbo
-dtbo-y += arth-mtp-fig.dtbo
-dtbo-y += arth-cdp-fig.dtbo
-dtbo-y += arth-rcm-fig.dtbo
-dtbo-y += artl-mtp-fig.dtbo
-dtbo-y += artl-mtp-peach.dtbo
-dtbo-y += artl-qrd-fig.dtbo
+dtbo-y += art-heap-mtp-fig.dtbo
+dtbo-y += art-heap-cdp-fig.dtbo
+dtbo-y += art-heap-rcm-fig.dtbo
+dtbo-y += art-leap-mtp-fig.dtbo
+dtbo-y += art-leap-mtp-peach.dtbo
+dtbo-y += art-leap-qrd-fig.dtbo
+dtbo-y += art-leap-rcm-fig.dtbo
 endif
 
-ifeq ($(CONFIG_ARCH_SDXECHO),y)
-dtbo-y += sdxecho-fig-cnss.dtbo
+ifeq ($(CONFIG_ARCH_ECHO),y)
+dtbo-y += echo-fig-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_X1P42100),y)
@@ -138,6 +139,10 @@ dtbo-y += seraph-advance-peach-cnss.dtbo
 dtbo-y += seraph-qar-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_PIKACHU),y)
+dtbo-y += pikachu-peach-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
 dtbo-y += sa8797p-sdp8-vm-cnss.dtbo
 dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
@@ -151,6 +156,10 @@ endif
 ifeq ($(CONFIG_ARCH_YUPIK),y)
 dtbo-y += yupik-qca6490-cnss.dtbo
 dtbo-y += yupik-qca6750-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_LAHAINA),y)
+dtbo-y += lahaina-qca6490-cnss.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
@@ -182,7 +191,7 @@ always-y	:= $(dtb-y) $(dtbo-y)
 subdir-y	:= $(dts-dirs)
 clean-files	:= *.dtb *.dtbo
 
-ifeq ($(CONFIG_ARCH_SDXECHO),y)
+ifeq ($(CONFIG_ARCH_ECHO),y)
 DTC ?= $(objtree)/scripts/dtc/dtc
 %.dtbo: %.dts
 	$(DTC) -O dtb -o $@ -b 0 -@ $<
