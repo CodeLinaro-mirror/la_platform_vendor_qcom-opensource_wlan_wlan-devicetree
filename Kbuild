@@ -178,6 +178,7 @@ endif
 ifeq ($(CONFIG_ARCH_LAHAINA),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
 dtbo-y += lahaina-hsp-pro.dtbo
+dtbo-y += lahaina-hsp.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
