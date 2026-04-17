@@ -115,6 +115,10 @@ dtbo-y += pebble-cdp-wcn7750.dtbo
 dtbo-y += pebble-mtp-wcn7750.dtbo
 dtbo-y += pebble-qrd-wcn7750.dtbo
 dtbo-y += pebble-rcm-wcn7750.dtbo
+dtbo-y += pebble-mtp-kiwi.dtbo
+dtbo-y += pebble-mtp-peach.dtbo
+dtbo-y += pebble-rcm-kiwi.dtbo
+dtbo-y += pebble-rcm-peach.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_VOLCANO),y)

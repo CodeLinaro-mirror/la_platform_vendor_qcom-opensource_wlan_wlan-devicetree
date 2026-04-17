@@ -100,7 +100,6 @@
 		qcom,wlan-cbc-enabled;
 		use-pm-domain;
 		qcom,same-dt-multi-dev;
-		platform-name-required;
 		/* For AOP communication, use direct QMP instead of mailbox */
 		qcom,qmp = <&aoss_qmp>;
 		platform-name-required;
