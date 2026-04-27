@@ -5,36 +5,21 @@
  */
 
 &soc {
-	cnss_pcie: qcom,cnss-qca-converged {
+	cnss_pcie1: qcom,cnss-qca-converged1 {
 		compatible = "qcom,cnss-qca-converged";
-		qcom,wlan-rc-num = <0>;
+		qcom,wlan-rc-num = <3>;
 		qcom,wlan;
 		qcom,multi-wlan-exchg;
 		qcom,bus-type=<0>;
 		qcom,notify-modem-status;
 		firmware-managed-resources;
-		gunyah-hypervisor;
+		qcom,pld_bus_ops_name = "pld_pcie_qca6490_cnss2";
 
-		#address-cells=<1>;
-		#size-cells=<1>;
+		#address-cells= <1>;
+		#size-cells= <1>;
 		ranges = <0xb0000000 0xb0000000 0x10000>;
 
-		/*
-		 * WLAN and BT power supplies are controlled by PMIC GPIOs,
-		 * not through the standard Linux regulator framework.
-		 *
-		 * Although WLAN and BT share the same physical regulator,
-		 * they were previously assigned to separate SCMI power
-		 * domains. Since GearVM does not provide a voting mechanism
-		 * for PMIC GPIO operations, disabling BT could de-assert
-		 * the PMIC GPIO and unintentionally remove power from WLAN,
-		 * resulting in a PCIe link down.
-		 *
-		 * Assign WLAN and BT to the same regulator power domain
-		 * (<&scmi_power 8>) so that the genpd framework can provide
-		 * proper power voting from the kernel layer.
-		 */
-		power-domains = <&scmi_power 8>, <&scmi_power 7>;
+		power-domains = <&scmi_power 20>, <&scmi_power 23>;
 		power-domain-names = "wlan_ldo", "wlan_gpio";
 
 		chip_cfg@0 {
@@ -50,6 +35,7 @@
 		chip_cfg@2 {
 			supported-ids = <0x1103>;
 			wlan_vregs;
+			qcom,qrtr_node_id = <0x10>;
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 			qcom,no-bwscale;
 			qcom,sleep-clk-support;
@@ -63,23 +49,23 @@
 };
 
 &reserved_memory {
-	cnss_wlan_mem: cnss_wlan_region {
+	cnss_wlan_mem1: cnss_wlan_region1 {
 		compatible = "shared-dma-pool";
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x2000000>;
+		size = <0x0 0x4000000>;
 	};
 };
 
-&pcie0 {
-	pcie0_rp: pcie0_rp {
+&pcie3 {
+	pcie3_rp: pcie3_rp {
 		reg = <0 0 0 0 0>;
-		#address-cells = <5>;
-		#size-cells = <0>;
-		cnss_pci: cnss_pci {
+		#address-cells = <3>;
+		#size-cells = <2>;
+		cnss_pci1: cnss_pci1 {
 			reg = <0 0 0 0 0>;
-			memory-region = <&cnss_wlan_mem>;
+			memory-region = <&cnss_wlan_mem1>;
 		};
 	};
 };
