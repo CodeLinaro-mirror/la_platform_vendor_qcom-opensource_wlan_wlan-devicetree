@@ -19,6 +19,7 @@
 		compatible = "qcom,icnss";
 		reg = <0xC800000 0x800000>;
 		reg-names = "membase";
+		mpm_wake_set_gpios = <88>;
 		iommus = <&apps_smmu 0x1A0 0x1>;
 		interrupts = <GIC_SPI 358 IRQ_TYPE_LEVEL_HIGH /* CE0 */ >,
 			     <GIC_SPI 359 IRQ_TYPE_LEVEL_HIGH /* CE1 */ >,
