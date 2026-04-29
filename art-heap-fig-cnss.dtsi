@@ -98,6 +98,7 @@
 		//qcom,qmp = <&aoss_qmp>;
 		msix-match-addr = <0x3000>;
 		platform-name-required;
+		caldb-rddm-reuse-supported;
 		fig-direct-cx;
 		cx-reg-name = "S3C0";
 
