@@ -7,19 +7,6 @@
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
 &soc {
-	qcom,smp2p-wpss {
-		smp2p_wlan_1_in: qcom,smp2p-wlan-1-in {
-			qcom,entry-name = "wlan";
-			interrupt-controller;
-			#interrupt-cells = <2>;
-		};
-
-		smp2p_wlan_1_out: qcom,smp2p-wlan-1-out {
-			qcom,entry-name = "wlan";
-			#qcom,smem-state-cells = <1>;
-		};
-	};
-
 
 	icnss: qcom,icnss@22800000 {
 		compatible = "qcom,icnss";
@@ -27,18 +14,19 @@
 		reg-names = "membase";
 		qcom,rproc-handle = <&wpss_pas>;
 		iommus = <&apps_smmu 0x4c0 0x1>;
-		interrupts = <GIC_SPI 389 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 413 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 416 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 417 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 434 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 435 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 438 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 439 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 440 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 451 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 453 IRQ_TYPE_EDGE_RISING>,
-			     <GIC_SPI 454 IRQ_TYPE_EDGE_RISING>;
+
+		interrupts = <GIC_SPI 389 IRQ_TYPE_LEVEL_HIGH /* CE0 */ >,
+			     <GIC_SPI 413 IRQ_TYPE_LEVEL_HIGH /* CE1 */ >,
+			     <GIC_SPI 416 IRQ_TYPE_LEVEL_HIGH /* CE2 */ >,
+			     <GIC_SPI 417 IRQ_TYPE_LEVEL_HIGH /* CE3 */ >,
+			     <GIC_SPI 434 IRQ_TYPE_LEVEL_HIGH /* CE4 */ >,
+			     <GIC_SPI 435 IRQ_TYPE_LEVEL_HIGH /* CE5 */ >,
+			     <GIC_SPI 438 IRQ_TYPE_LEVEL_HIGH /* CE6 */ >,
+			     <GIC_SPI 439 IRQ_TYPE_LEVEL_HIGH /* CE7 */ >,
+			     <GIC_SPI 440 IRQ_TYPE_LEVEL_HIGH /* CE8 */ >,
+			     <GIC_SPI 451 IRQ_TYPE_LEVEL_HIGH /* CE9 */ >,
+			     <GIC_SPI 453 IRQ_TYPE_LEVEL_HIGH /* CE10 */ >,
+			     <GIC_SPI 454 IRQ_TYPE_LEVEL_HIGH /* CE11 */ >;
 
 		qcom,iommu-dma = "fastmap";
 		qcom,iommu-faults = "stall-disable", "HUPCF", "non-fatal";
