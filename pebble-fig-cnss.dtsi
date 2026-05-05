@@ -244,7 +244,9 @@
 			 " {class: wlan_pdc, ss: rf, res: S1J1.m, enable: 1}",
 			 " {class: wlan_pdc, ss: rf, res: S1J1.v, enable: 1}",
 			 " {class: wlan_pdc, ss: rf, res: L3K1.m, dwnval: 3}",
-			 " {class: wlan_pdc, ss: bb, res: pdc, enable: 1}";
+			 " {class: wlan_pdc, ss: bb, res: pdc, enable: 1}",
+			 /* Enable Strong PD for FIG WLAN attach on Pebble */
+			 " {class: pmic, bid: 0, sid: 2, addr: 0xA1A0, value: 0x88}";
 
 		/* cpu mask used for wlan tx rx interrupt affinity
 		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
