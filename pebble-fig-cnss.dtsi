@@ -221,6 +221,24 @@
 		/* super fast: > 7500 Mbps ddr: 4224 GHz */
 		<1250000 16896000>;
 
+		qcom,vreg_pdc_map =
+			"S3C0", "bb",
+			"S1J1", "rf",
+			"S7G0", "rf",
+			"S4C0", "rf";
+
+		qcom,pmu_vreg_map =
+			"VDDD_AON_0P9", "S1J1",
+			"VDDA_RFA_0P9", "S1J1",
+			"VDDA_RFA_1P9", "S4C0",
+			"VDDA_RFA_1P3", "S7G0",
+			"VDDD_WLMX_0P9", "S1J1",
+			"VDDD_WLCX_0P9", "S3C0",
+			"VDDD_BTCX_0P9", "S1J1",
+			"VDDD_BTCMX_0P9", "S1J1",
+			"VDDA_PCIE_0P9", "S7G0",
+			"VDDA_PCIE_1P2", "S7G0";
+
 		/* PDC delta wrt to default attach.
 		 * RF PDC config delta
 		 * voltage change on S7G and S4C
