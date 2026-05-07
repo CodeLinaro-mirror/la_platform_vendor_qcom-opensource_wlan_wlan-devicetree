@@ -143,6 +143,7 @@
 		qcom,qmp = <&aoss_qmp>;
 		msix-match-addr = <0x3000>;
 		platform-name-required;
+		caldb-rddm-reuse-supported;
 		fig-direct-cx;
 		/*Direct CX in data pin PDC mode*/
 		cx-mode = <2>;

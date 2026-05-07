@@ -114,6 +114,7 @@
 		qcom,qmp = <&aoss_qmp>;
 		msix-match-addr = <0x3000>;
 		platform-name-required;
+		caldb-rddm-reuse-supported;
 		fig-direct-cx;
 		cx-mode = <2>;
 		cx-reg-name = "S1J1";
