@@ -1,6 +1,7 @@
 ifeq ($(CONFIG_ARCH_ART),y)
 dtbo-y += art-atp-fig.dtbo
 dtbo-y += art-cdp-fig.dtbo
+dtbo-y += art-cdp-peach.dtbo
 dtbo-y += art-mtp-fig.dtbo
 dtbo-y += art-mtp-peach.dtbo
 dtbo-y += art-omtp-fig.dtbo
@@ -58,6 +59,10 @@ dtbo-y += chora-bonefish-mtp-wcn6450.dtbo
 dtbo-y += chora-bonefish-qrd-wcn6450.dtbo
 dtbo-y += chora-bonefish-mtp-wcn7750.dtbo
 dtbo-y += chora-bonefish-qrd-wcn7750.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_MALABAR),y)
+dtbo-y += malabar-adrastea.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_SUN),y)
@@ -135,6 +140,10 @@ dtbo-y += seraph-advance-peach-cnss.dtbo
 dtbo-y += seraph-qar-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_PIKACHU),y)
+dtbo-y += pikachu-peach-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
 dtbo-y += sa8797p-sdp8-vm-cnss.dtbo
 dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
@@ -164,6 +173,10 @@ endif
 
 ifeq ($(CONFIG_ARCH_BENGAL),y)
 dtbo-y += bengal-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_SCUBA),y)
+dtbo-y += scuba-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_MONACO),y)
