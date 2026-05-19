@@ -85,6 +85,7 @@ dtbo-y += sun-peach-cnss.dtbo
 dtbo-y += sun-peach-cnss-v8.dtbo
 dtbo-y += sunp-hdk-peach-cnss-v8.dtbo
 dtbo-y += sunp-rcm-peach-cnss-v8.dtbo
+dtbo-y += sunp-iot-vc-wcn7881-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PINEAPPLE),y)
