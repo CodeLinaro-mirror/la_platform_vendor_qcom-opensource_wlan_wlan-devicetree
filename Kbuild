@@ -64,6 +64,17 @@ ifeq ($(CONFIG_ARCH_MALABAR),y)
 dtbo-y += malabar-adrastea.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_BOURTZI),y)
+dtbo-y += bourtzi-mtp-wcn6450.dtbo
+dtbo-y += bourtzi-qrd-wcn6450.dtbo
+dtbo-y += bourtzi-rcm-wcn6450.dtbo
+dtbo-y += bourtzi-atp-adrastea.dtbo
+dtbo-y += bourtzi-cdp-adrastea.dtbo
+dtbo-y += bourtzi-mtp-adrastea.dtbo
+dtbo-y += bourtzi-qrd-adrastea.dtbo
+dtbo-y += bourtzi-rcm-adrastea.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SUN),y)
 dtbo-y += sun-kiwi-cnss.dtbo
 dtbo-y += sun-kiwi-cnss-v8.dtbo
