@@ -217,6 +217,10 @@
 			" {class: wlan_pdc, ss: rf, res: L3K1.m, enable: 1}",
 			" {class: wlan_pdc, ss: rf, res: L3K1.m, dwnval: 2}";
 
+		/* Enable Strong PD for FIG WLAN attach on ART */
+		qcom,pdc_init_table =
+			" {class: pmic, bid: 1, sid: 9, addr: 0x9BA0, value: 0x88}";
+
 		/* cpu mask used for wlan tx rx interrupt affinity
 		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
 		 */
