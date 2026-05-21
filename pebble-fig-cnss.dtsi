@@ -148,6 +148,9 @@
 		/*Direct CX in data pin PDC mode*/
 		cx-mode = <2>;
 		cx-reg-name = "S3C0";
+		qcom,pmic-auto-headroom = <24>;
+		qcom,wake-voltage-drop-adjustment = <0>;
+		qcom,sleep-voltage-drop-adjustment = <0>;
 
 		vdd-wlan-aon-supply = <&L2D>;
 		qcom,vdd-wlan-aon-config = <1800000 2000000 30000 0 1>;
