@@ -1,6 +1,7 @@
 ifeq ($(CONFIG_ARCH_ART),y)
 dtbo-y += art-atp-fig.dtbo
 dtbo-y += art-cdp-fig.dtbo
+dtbo-y += art-cdp-peach.dtbo
 dtbo-y += art-mtp-fig.dtbo
 dtbo-y += art-mtp-peach.dtbo
 dtbo-y += art-omtp-fig.dtbo
@@ -60,6 +61,10 @@ dtbo-y += chora-bonefish-mtp-wcn7750.dtbo
 dtbo-y += chora-bonefish-qrd-wcn7750.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_MALABAR),y)
+dtbo-y += malabar-adrastea.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SUN),y)
 dtbo-y += sun-kiwi-cnss.dtbo
 dtbo-y += sun-kiwi-cnss-v8.dtbo
@@ -101,6 +106,22 @@ dtbo-y += parrot-idp-wcn6755.dtbo
 dtbo-y += parrot-qrd-wcn6755.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_PEBBLE),y)
+dtbo-y += pebble-atp-fig.dtbo
+dtbo-y += pebble-cdp-fig.dtbo
+dtbo-y += pebble-mtp-fig.dtbo
+dtbo-y += pebble-qrd-fig.dtbo
+dtbo-y += pebble-rcm-fig.dtbo
+dtbo-y += pebble-cdp-wcn7750.dtbo
+dtbo-y += pebble-mtp-wcn7750.dtbo
+dtbo-y += pebble-qrd-wcn7750.dtbo
+dtbo-y += pebble-rcm-wcn7750.dtbo
+dtbo-y += pebble-mtp-kiwi.dtbo
+dtbo-y += pebble-mtp-peach.dtbo
+dtbo-y += pebble-rcm-kiwi.dtbo
+dtbo-y += pebble-rcm-peach.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_VOLCANO),y)
 dtbo-y += volcano-qca6750.dtbo
 dtbo-y += volcano6i-peach-cnss.dtbo
@@ -136,6 +157,10 @@ dtbo-y += seraph-advance-peach-cnss.dtbo
 dtbo-y += seraph-qar-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_PIKACHU),y)
+dtbo-y += pikachu-peach-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_QTI_VM),y)
 dtbo-y += sa8797p-sdp8-vm-cnss.dtbo
 dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
@@ -153,6 +178,8 @@ endif
 
 ifeq ($(CONFIG_ARCH_LAHAINA),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
+dtbo-y += lahaina-hsp-pro.dtbo
+dtbo-y += lahaina-hsp.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
@@ -165,6 +192,10 @@ endif
 
 ifeq ($(CONFIG_ARCH_BENGAL),y)
 dtbo-y += bengal-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_SCUBA),y)
+dtbo-y += scuba-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_MONACO),y)
