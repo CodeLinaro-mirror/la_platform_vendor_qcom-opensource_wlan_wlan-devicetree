@@ -43,7 +43,7 @@
 		};
 	};
 
-	wpss_pas: remoteproc-wpss@8a00000 {
+	wpss_pas: remoteproc-wpss@08a00000 {
 		firmware-name = "wcn6450/wpss.mdt";
 	};
 
