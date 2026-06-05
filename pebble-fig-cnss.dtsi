@@ -257,9 +257,9 @@
 		 */
 		qcom,pdc_init_table =
 			 " {class: wlan_pdc, ss: rf, res: S7G0.v, upval: 1328}",
-			 " {class: wlan_pdc, ss: rf, res: S7G0.v, dwnval: 1328}",
+			 " {class: wlan_pdc, ss: rf, res: S7G0.v, dwnval: 1248}",
 			 " {class: wlan_pdc, ss: rf, res: S4C0.v, upval: 1876}",
-			 " {class: wlan_pdc, ss: rf, res: S4C0.v, dwnval: 1876}",
+			 " {class: wlan_pdc, ss: rf, res: S4C0.v, dwnval: 1824}",
 			 " {class: wlan_pdc, ss: rf, res: S9D0.m, enable: 0}",
 			 " {class: wlan_pdc, ss: rf, res: S9D0.v, enable: 0}",
 			 " {class: wlan_pdc, ss: rf, res: S3C0.e, enable: 0}",
