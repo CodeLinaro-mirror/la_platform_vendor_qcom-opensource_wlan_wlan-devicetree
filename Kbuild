@@ -80,10 +80,15 @@ dtbo-y += pineapplep-hdk-kiwi-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_X1E80100),y)
+ifeq ($(TARGET_BOARD_PLATFORM),hamoa)
 dtbo-y += x1e80100-kiwi-cnss.dtbo
 dtbo-y += x1e80100-kiwi-qcb-cnss.dtbo
 dtbo-y += x1e80100-kiwi-qcp-cnss.dtbo
+else ifeq ($(TARGET_BOARD_PLATFORM),hamoa_la)
 dtbo-y += hamoa_la-kiwi-cnss.dtbo
+dtbo-y += hamoa_la-kiwi-qcb-cnss.dtbo
+dtbo-y += hamoa_la-kiwi-qcp-cnss.dtbo
+endif
 endif
 
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
@@ -178,6 +183,7 @@ endif
 ifeq ($(CONFIG_ARCH_LAHAINA),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
 dtbo-y += lahaina-hsp-pro.dtbo
+dtbo-y += lahaina-hsp.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
