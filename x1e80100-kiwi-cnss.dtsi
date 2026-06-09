@@ -69,6 +69,8 @@
 		qcom,qmp = <&aoss_qmp>;
 		vdd-wlan-m2-supply = <&vreg_wlan_3p3>;
 		qcom,vdd-wlan-m2-config = <3300000 3300000 0 0 0>;
+		/* 1: board-id from PCIe config space (SSID/SVID) */
+		qcom,board-id-src = <1>;
 		vdd-wlan-io-supply = <&L15B>;
 		qcom,vdd-wlan-io-config = <1800000 1800000 0 0 0>;
 		/* interconnect is not set */
