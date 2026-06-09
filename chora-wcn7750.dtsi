@@ -191,6 +191,11 @@
 			 " {class: wlan_pdc, ss: rf, res: L3F0.m, enable: 0}",
 			 " {class: wlan_pdc, ss: rf, res: L3F0.v, enable: 0}";
 
+		/* cpu mask used for wlan tx rx interrupt affinity
+		 * <cpumask_for_rx_interrupts cpumask_for_tx_comp_interrupts>
+		 */
+		wlan-txrx-intr-cpumask = <0x0F 0xF0>;
+
 		interconnects =
 		<&pcie_anoc MASTER_PCIE_0 &pcie_anoc SLAVE_ANOC_PCIE_GEM_NOC>,
 		<&gem_noc MASTER_ANOC_PCIE_GEM_NOC &mc_virt SLAVE_EBI1>;
