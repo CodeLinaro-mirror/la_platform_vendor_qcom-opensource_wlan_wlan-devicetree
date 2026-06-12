@@ -8,6 +8,12 @@
 
 &soc {
 
+	icnss2_iommu_group: icnss2_iommu_group {
+		qcom,iommu-geometry = <0x0 0xa0000000 0x0 0x10000000>;
+		qcom,iommu-dma = "fastmap";
+		qcom,iommu-faults = "stall-disable", "HUPCF", "non-fatal";
+	};
+
 	icnss: qcom,icnss@22800000 {
 		compatible = "qcom,icnss";
 		reg = <0x0 0x22800000 0x0 0x800000>;
@@ -28,9 +34,7 @@
 			     <GIC_SPI 453 IRQ_TYPE_LEVEL_HIGH /* CE10 */ >,
 			     <GIC_SPI 454 IRQ_TYPE_LEVEL_HIGH /* CE11 */ >;
 
-		qcom,iommu-dma = "fastmap";
-		qcom,iommu-faults = "stall-disable", "HUPCF", "non-fatal";
-		qcom,iommu-geometry = <0x0 0xa0000000 0x0 0x10000000>;
+		qcom,iommu-group = <&icnss2_iommu_group>;
 		dma-coherent;
 		memory-region = <&icnss2_iommu_region_partition>;
 		qcom,fw-prefix;
