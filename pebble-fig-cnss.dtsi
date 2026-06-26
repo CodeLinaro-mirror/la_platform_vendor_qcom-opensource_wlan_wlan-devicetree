@@ -122,7 +122,6 @@
 		qcom,sw-ctrl-data-0-gpio = <&tlmm 155 0>;
 		qcom,sw-ctrl-data-1-gpio = <&tlmm 156 0>;
 		cnss-direct-cx-host-sol-init-gpio = <&tlmm 204 0>;
-		wlan-dev-sol-gpio = <&tlmm 205 0>;
 		/* List of GPIOs to be setup for interrupt wakeup capable */
 		mpm_wake_set_gpios = <18 19>;
 		pinctrl-names = "wlan_en_active", "wlan_en_sleep", "sw_ctrl",
