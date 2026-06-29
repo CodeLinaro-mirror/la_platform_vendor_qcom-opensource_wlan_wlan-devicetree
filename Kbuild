@@ -103,6 +103,11 @@ dtbo-y += hamoa_la-kiwi-qcp-cnss.dtbo
 endif
 endif
 
+ifeq ($(CONFIG_ARCH_MAHUA),y)
+dtbo-y += mahua-wcn7760-cnss.dtbo
+dtbo-y += mahua-kiwi-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
