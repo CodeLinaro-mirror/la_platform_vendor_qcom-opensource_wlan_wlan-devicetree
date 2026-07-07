@@ -6,13 +6,6 @@
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
-&reserved_memory {
-	wlan_msa_mem: wlan_msa_region@82a00000 {
-		no-map;
-		reg = <0x0 0x82a00000 0x0 0xc00000>;
-	};
-};
-
 &soc {
 	qcom,smp2p-wpss {
 		bourtzi_wcn6450_smp2p_wlan_1_in: qcom,smp2p-wlan-1-in {
