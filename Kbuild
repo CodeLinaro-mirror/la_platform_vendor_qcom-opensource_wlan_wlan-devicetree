@@ -69,6 +69,7 @@ dtbo-y += sa8797p-gunyah-vm-cnss.dtbo
 dtbo-y += sa8255p-vm-cnss.dtbo
 dtbo-y += sa8797p-sdp8-vm-cnss.dtbo
 dtbo-y += sa8787p-gunyah-vm-cnss.dtbo
+dtbo-y += sa8787p-sdp8-vm-cnss.dtbo
 endif
 
 always-y	:= $(dtb-y) $(dtbo-y)
