@@ -107,7 +107,6 @@
 		qcom,same-dt-multi-dev;
 		/* For AOP communication, use direct QMP instead of mailbox */
 		qcom,qmp = <&aoss_qmp>;
-		msix-match-addr = <0x3000>;
 
 		vdd-wlan-io-supply = <&L3F>;
 		qcom,vdd-wlan-io-config = <1800000 1800000 30000 0 1>;
