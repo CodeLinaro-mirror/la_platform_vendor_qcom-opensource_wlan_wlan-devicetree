@@ -24,6 +24,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_X1P42100),y)
 dtbo-y += x1p42100-kiwi-cnss.dtbo
+dtbo-y += x1p42100-wcn7760-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_CANOE),y)
