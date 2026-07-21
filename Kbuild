@@ -7,6 +7,7 @@ dtbo-y += art-mtp-peach.dtbo
 dtbo-y += art-omtp-fig.dtbo
 dtbo-y += art-qrd-fig.dtbo
 dtbo-y += art-rcm-fig.dtbo
+dtbo-y += art-hdk-fig.dtbo
 dtbo-y += art-rcm-peach.dtbo
 dtbo-y += art-heap-mtp-fig.dtbo
 dtbo-y += art-heap-cdp-fig.dtbo
@@ -100,6 +101,11 @@ dtbo-y += hamoa_la-kiwi-cnss.dtbo
 dtbo-y += hamoa_la-kiwi-qcb-cnss.dtbo
 dtbo-y += hamoa_la-kiwi-qcp-cnss.dtbo
 endif
+endif
+
+ifeq ($(CONFIG_ARCH_MAHUA),y)
+dtbo-y += mahua-wcn7760-cnss.dtbo
+dtbo-y += mahua-kiwi-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
