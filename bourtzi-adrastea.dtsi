@@ -6,6 +6,13 @@
 
 #include <dt-bindings/interrupt-controller/arm-gic.h>
 
+&reserved_memory {
+	bourtzi_adrastea_wlan_msa_mem: wlan_msa_region@82a00000 {
+		no-map;
+		reg = <0x0 0x82a00000 0x0 0x300000>;
+	};
+};
+
 &soc {
 
 	icnss2_iommu_group: icnss2_iommu_group {
@@ -41,12 +48,14 @@
 		qcom,wlan;
 		wpss-support-enable;
 		bdf-download-support;
-		qcom,wlan-msa-fixed-region = <&wlan_msa_mem>;
+		qcom,wlan-msa-fixed-region = <&bourtzi_adrastea_wlan_msa_mem>;
 		vdd-cx-mx-supply = <&L11B>;
 		vdd-1.8-xo-supply = <&L18B>;
 		vdd-1.3-rfa-supply = <&L14B>;
+		vdd-3.3-ch1-supply = <&L24B>;
 		vdd-3.3-ch0-supply = <&L7E>;
 		qcom,vdd-cx-mx-config = <0 0>;
+		qcom,vdd-3.3-ch1-config = <3000000 3312000 1>;
 		qcom,vdd-3.3-ch0-config = <3000000 3312000 1>;
 
 		qcom,smem-states = <&smp2p_wlan_1_out 0>;

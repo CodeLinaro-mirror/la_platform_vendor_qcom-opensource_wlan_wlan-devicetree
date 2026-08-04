@@ -189,6 +189,7 @@
 		qcom,pdc_init_table =
 			" {class: wlan_pdc, ss: rf, res: S7G0.v, dwnval: 1240}",
 			" {class: wlan_pdc, ss: rf, res: S9D0.v, dwnval: 616}",
+			" {class: wlan_pdc, ss: rf, res: S3C0.m, enable: 0}",
 			" {class: wlan_pdc, ss: rf, res: S3C0.e, enable: 0}",
 			" {class: wlan_pdc, ss: rf, res: L3K1.m, dwnval: 3}",
 			" {class: wlan_pdc, ss: rf, res: S9D0.v, upval: 976}",
@@ -204,6 +205,10 @@
 		wlan-txrx-intr-cpumask = <0x3 0x30>;
 	};
 
+	wlan_vendor_wonder: qcom,cnss-vendor-wlan-wonder {
+		compatible = "qcom,cnss-vendor-wlan-wonder";
+		status = "okay";
+	};
 };
 
 &pcie0_rp {
