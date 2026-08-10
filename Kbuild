@@ -152,6 +152,7 @@ dtbo-y += pebble-mtp-fig.dtbo
 dtbo-y += pebble-qrd-fig.dtbo
 dtbo-y += pebble-rcm-fig.dtbo
 dtbo-y += pebble-cdp-wcn7750.dtbo
+dtbo-y += pebble-hdk-wcn7750.dtbo
 dtbo-y += pebble-mtp-wcn7750.dtbo
 dtbo-y += pebble-qrd-wcn7750.dtbo
 dtbo-y += pebble-rcm-wcn7750.dtbo
