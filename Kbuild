@@ -1,11 +1,13 @@
 ifeq ($(CONFIG_ARCH_ART),y)
 dtbo-y += art-atp-fig.dtbo
 dtbo-y += art-cdp-fig.dtbo
+dtbo-y += art-cdp-peach.dtbo
 dtbo-y += art-mtp-fig.dtbo
 dtbo-y += art-mtp-peach.dtbo
 dtbo-y += art-omtp-fig.dtbo
 dtbo-y += art-qrd-fig.dtbo
 dtbo-y += art-rcm-fig.dtbo
+dtbo-y += art-hdk-fig.dtbo
 dtbo-y += art-rcm-peach.dtbo
 dtbo-y += art-heap-mtp-fig.dtbo
 dtbo-y += art-heap-cdp-fig.dtbo
@@ -22,6 +24,7 @@ endif
 
 ifeq ($(CONFIG_ARCH_X1P42100),y)
 dtbo-y += x1p42100-kiwi-cnss.dtbo
+dtbo-y += x1p42100-wcn7760-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_CANOE),y)
@@ -64,6 +67,17 @@ ifeq ($(CONFIG_ARCH_MALABAR),y)
 dtbo-y += malabar-adrastea.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_BOURTZI),y)
+dtbo-y += bourtzi-mtp-wcn6450.dtbo
+dtbo-y += bourtzi-qrd-wcn6450.dtbo
+dtbo-y += bourtzi-rcm-wcn6450.dtbo
+dtbo-y += bourtzi-atp-adrastea.dtbo
+dtbo-y += bourtzi-cdp-adrastea.dtbo
+dtbo-y += bourtzi-mtp-adrastea.dtbo
+dtbo-y += bourtzi-qrd-adrastea.dtbo
+dtbo-y += bourtzi-rcm-adrastea.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_SUN),y)
 dtbo-y += sun-kiwi-cnss.dtbo
 dtbo-y += sun-kiwi-cnss-v8.dtbo
@@ -79,10 +93,20 @@ dtbo-y += pineapplep-hdk-kiwi-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_X1E80100),y)
+ifeq ($(TARGET_BOARD_PLATFORM),hamoa)
 dtbo-y += x1e80100-kiwi-cnss.dtbo
 dtbo-y += x1e80100-kiwi-qcb-cnss.dtbo
 dtbo-y += x1e80100-kiwi-qcp-cnss.dtbo
+else ifeq ($(TARGET_BOARD_PLATFORM),hamoa_la)
 dtbo-y += hamoa_la-kiwi-cnss.dtbo
+dtbo-y += hamoa_la-kiwi-qcb-cnss.dtbo
+dtbo-y += hamoa_la-kiwi-qcp-cnss.dtbo
+endif
+endif
+
+ifeq ($(CONFIG_ARCH_MAHUA),y)
+dtbo-y += mahua-wcn7760-cnss.dtbo
+dtbo-y += mahua-kiwi-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
@@ -102,6 +126,22 @@ dtbo-y += parrot-atp-wcn3990.dtbo
 dtbo-y += parrot-rumi-wcn3990.dtbo
 dtbo-y += parrot-idp-wcn6755.dtbo
 dtbo-y += parrot-qrd-wcn6755.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_PEBBLE),y)
+dtbo-y += pebble-atp-fig.dtbo
+dtbo-y += pebble-cdp-fig.dtbo
+dtbo-y += pebble-mtp-fig.dtbo
+dtbo-y += pebble-qrd-fig.dtbo
+dtbo-y += pebble-rcm-fig.dtbo
+dtbo-y += pebble-cdp-wcn7750.dtbo
+dtbo-y += pebble-mtp-wcn7750.dtbo
+dtbo-y += pebble-qrd-wcn7750.dtbo
+dtbo-y += pebble-rcm-wcn7750.dtbo
+dtbo-y += pebble-mtp-kiwi.dtbo
+dtbo-y += pebble-mtp-peach.dtbo
+dtbo-y += pebble-rcm-kiwi.dtbo
+dtbo-y += pebble-rcm-peach.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_VOLCANO),y)
@@ -160,6 +200,8 @@ endif
 
 ifeq ($(CONFIG_ARCH_LAHAINA),y)
 dtbo-y += lahaina-qca6490-cnss.dtbo
+dtbo-y += lahaina-hsp-pro.dtbo
+dtbo-y += lahaina-hsp.dtbo
 endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
@@ -172,6 +214,10 @@ endif
 
 ifeq ($(CONFIG_ARCH_BENGAL),y)
 dtbo-y += bengal-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_SCUBA),y)
+dtbo-y += scuba-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_MONACO),y)
