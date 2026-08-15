@@ -87,6 +87,7 @@
 		/* List of GPIOs to be setup for interrupt wakeup capable */
 		mpm_wake_set_gpios = <18>;
 		pin_wlan-en-gpio = <&pmh0104_c_gpios 7 0>;
+		pin_bt-en-gpio = <&pmh0104_c_gpios 6 0>;
 		pin_sw-ctrl-gpio = <&tlmm 18 0>;
 		pinctrl-names = "sw_ctrl", "wlan_en_active", "wlan_en_sleep";
 		pinctrl-0 = <&icnss_sw_ctrl>;
