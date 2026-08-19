@@ -8,6 +8,7 @@
 /plugin/;
 
 #include "sa8787p-sdp8-vm-cnss.dtsi"
+#include "sa8787p-sdp8-vm-dual-cnss.dtsi"
 
 / {
 	model = "Qualcomm Technologies, SECA Single LA  Guest Virtual Machine";
