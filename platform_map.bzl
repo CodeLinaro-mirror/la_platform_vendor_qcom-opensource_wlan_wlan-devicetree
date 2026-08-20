@@ -34,6 +34,7 @@ _platform_map = {
             {"name": "art-qrd-fig.dtbo"},
             {"name": "art-rcm-fig.dtbo"},
             {"name": "art-rcm-peach.dtbo"},
+            {"name": "art-hdk-fig.dtbo"},
         ],
     },
     "bengal": {

@@ -47,6 +47,12 @@
 		firmware-name = "wcn6450/wpss.mdt";
 	};
 
+	icnss2_iommu_group: icnss2_iommu_group {
+		qcom,iommu-geometry = <0x0 0xb0000000 0x0 0x10010000>;
+		qcom,iommu-dma = "fastmap";
+		qcom,iommu-faults = "stall-disable", "HUPCF", "non-fatal";
+	};
+
 	icnss2: qcom,wcn6450 {
 		compatible = "qcom,wcn6450";
 		reg = <0x0 0x17210040 0x0 0x0>,
@@ -77,9 +83,7 @@
 			     <GIC_SPI 780 IRQ_TYPE_EDGE_RISING>,
 			     <GIC_SPI 781 IRQ_TYPE_EDGE_RISING>;
 
-		qcom,iommu-dma = "fastmap";
-		qcom,iommu-faults = "stall-disable", "HUPCF", "non-fatal";
-		qcom,iommu-geometry = <0x0 0xb0000000 0x0 0x10010000>;
+		qcom,iommu-group = <&icnss2_iommu_group>;
 		dma-coherent;
 		memory-region = <&icnss2_iommu_region_partition>;
 		qcom,fw-prefix;

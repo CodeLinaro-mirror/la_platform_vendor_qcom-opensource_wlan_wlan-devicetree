@@ -7,6 +7,7 @@ dtbo-y += art-mtp-peach.dtbo
 dtbo-y += art-omtp-fig.dtbo
 dtbo-y += art-qrd-fig.dtbo
 dtbo-y += art-rcm-fig.dtbo
+dtbo-y += art-hdk-fig.dtbo
 dtbo-y += art-rcm-peach.dtbo
 dtbo-y += art-heap-mtp-fig.dtbo
 dtbo-y += art-heap-cdp-fig.dtbo
