@@ -131,10 +131,12 @@ endif
 
 ifeq ($(CONFIG_ARCH_PEBBLE),y)
 dtbo-y += pebble-atp-fig.dtbo
-dtbo-y += pebble-cdp-fig.dtbo
 dtbo-y += pebble-mtp-fig.dtbo
+ifneq ($(TARGET_BOARD_PLATFORM),pebble-le)
+dtbo-y += pebble-cdp-fig.dtbo
 dtbo-y += pebble-qrd-fig.dtbo
 dtbo-y += pebble-rcm-fig.dtbo
+endif
 dtbo-y += pebble-cdp-wcn7750.dtbo
 dtbo-y += pebble-mtp-wcn7750.dtbo
 dtbo-y += pebble-qrd-wcn7750.dtbo
