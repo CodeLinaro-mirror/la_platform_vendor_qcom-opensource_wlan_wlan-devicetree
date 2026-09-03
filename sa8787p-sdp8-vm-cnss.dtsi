@@ -7,22 +7,18 @@
 &soc {
 	cnss_pcie: qcom,cnss-qca-converged {
 		compatible = "qcom,cnss-qca-converged";
-		qcom,wlan-rc-num = <0>;
+		qcom,wlan-rc-num = <2>;
 		qcom,wlan;
 		qcom,multi-wlan-exchg;
-		qcom,bus-type=<0>;
+		qcom,bus-type = <0>;
 		qcom,notify-modem-status;
 		firmware-managed-resources;
-		gunyah-hypervisor;
 
-		#address-cells=<1>;
-		#size-cells=<1>;
+		#address-cells = <1>;
+		#size-cells = <1>;
 		ranges = <0xb0000000 0xb0000000 0x10000>;
-
-		power-domains = <&scmi_power 2>, <&scmi_power 3>;
+		power-domains = <&scmi_power 10>, <&scmi_power 11>;
 		power-domain-names = "wlan_ldo", "wlan_gpio";
-
-		qcom,napi-ipi-redirect-enable;
 
 		chip_cfg@0 {
 			supported-ids = <0x1101>;
@@ -59,11 +55,13 @@
 	};
 };
 
-&pcie0 {
-	pcie0_rp: pcie0_rp {
+&pcie2 {
+	status = "okay";
+
+	pcie2_rp: pcie2_rp {
 		reg = <0 0 0 0 0>;
-		#address-cells = <5>;
-		#size-cells = <0>;
+		#address-cells = <3>;
+		#size-cells = <2>;
 		cnss_pci: cnss_pci {
 			reg = <0 0 0 0 0>;
 			memory-region = <&cnss_wlan_mem>;
