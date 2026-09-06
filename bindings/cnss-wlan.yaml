@@ -324,6 +324,14 @@ properties:
        PBS regulator on which clients can vote to trigger the PBS
        sequence.
 
+   caldb-rddm-reuse-supported:
+     description: |
+       Boolean property to declare that the host platform supports
+       the CALDB and RDDM reuse feature. When present, the CNSS
+       driver support to save the CALDB into the
+       RDDM memory segments upon firmware crash, and restore it
+       after recovery, avoiding the need for full re-calibration.
+
 required:
   - compatible
   - wlan-en-gpio
