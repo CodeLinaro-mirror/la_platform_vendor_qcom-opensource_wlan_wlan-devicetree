@@ -116,6 +116,11 @@
 		/* low (latency critical): 18-60 Mbps ddr: 547.2 MHz */
 		<7500 2180000>;
 	};
+
+	wlan_vendor_wonder: qcom,cnss-vendor-wlan-wonder {
+		compatible = "qcom,cnss-vendor-wlan-wonder";
+		status = "okay";
+	};
 };
 
 &pcie4_rp {
