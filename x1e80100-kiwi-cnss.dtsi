@@ -67,7 +67,7 @@
 		use-pm-domain;
 		qcom,same-dt-multi-dev;
 		qcom,qmp = <&aoss_qmp>;
-		vdd-wlan-m2-supply = <&vreg_wlan_3p3>;
+		vdd-wlan-m2-supply = <&vreg_wlan_kiwi_3p3>;
 		qcom,vdd-wlan-m2-config = <3300000 3300000 0 0 0>;
 		/* 1: board-id from PCIe config space (SSID/SVID) */
 		qcom,board-id-src = <1>;
