@@ -3,10 +3,9 @@ load(":define_targets.bzl", "define_all_targets")
 
 devicetree_library(
     name = "all_wlan_dtsi",
-    hdrs = glob(["**/*.dtsi"]) + glob(["**/*.h"]),
+    hdrs = glob(["**/*.dtsi"]),
     includes = [
         ".",
-        "wlan",
     ],
     deps = [
         "//soc-repo:dt_includes",
