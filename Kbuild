@@ -114,6 +114,10 @@ dtbo-y += waipio-kiwi-cnss.dtbo
 dtbo-y += waipio-qca6490-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_DIWALI),y)
+dtbo-y += diwali-qca6750.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
