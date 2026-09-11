@@ -109,6 +109,11 @@ dtbo-y += mahua-wcn7760-cnss.dtbo
 dtbo-y += mahua-kiwi-cnss.dtbo
 endif
 
+ifeq ($(CONFIG_ARCH_WAIPIO),y)
+dtbo-y += waipio-kiwi-cnss.dtbo
+dtbo-y += waipio-qca6490-cnss.dtbo
+endif
+
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
 dtbo-y += ravelin-idp-adrastea.dtbo
 dtbo-y += ravelin-qrd-adrastea.dtbo
