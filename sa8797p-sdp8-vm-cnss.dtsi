@@ -37,11 +37,15 @@
 			qcom,wlan-ramdump-dynamic = <0x420000>;
 			qcom,no-bwscale;
 			qcom,sleep-clk-support;
+			qcom,set-wlaon-pwr-ctrl;
+			qcom,wlaon-pwr-ctrl-otp-supported;
 		};
 
 		chip_cfg@3 {
 			supported-ids = <0x1107>;
 			qcom,wlan-ramdump-dynamic = <0x600000>;
+			qcom,set-wlaon-pwr-ctrl;
+			qcom,wlaon-pwr-ctrl-otp-supported;
 		};
 	};
 };
@@ -52,7 +56,7 @@
 		alloc-ranges = <0x0 0x00000000 0x0 0xffffffff>;
 		reusable;
 		alignment = <0x0 0x400000>;
-		size = <0x0 0x2000000>;
+		size = <0x0 0x4000000>;
 	};
 };
 
