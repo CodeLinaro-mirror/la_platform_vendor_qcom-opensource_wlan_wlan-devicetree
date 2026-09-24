@@ -231,6 +231,7 @@ endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
 dtbo-y += sa525m-cnss.dtbo
+dtbo-y += sa525m-cnss-ep.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_KHAJE),y)
