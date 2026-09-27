@@ -260,6 +260,7 @@
 			 " {class: wlan_pdc, ss: rf, res: S4C0.v, dwnval: 1824}",
 			 " {class: wlan_pdc, ss: rf, res: S9D0.m, enable: 0}",
 			 " {class: wlan_pdc, ss: rf, res: S9D0.v, enable: 0}",
+			 " {class: wlan_pdc, ss: rf, res: S3C0.m, enable: 0}",
 			 " {class: wlan_pdc, ss: rf, res: S3C0.e, enable: 0}",
 			 " {class: wlan_pdc, ss: rf, res: S1J1.m, enable: 1}",
 			 " {class: wlan_pdc, ss: rf, res: S1J1.v, enable: 1}",
