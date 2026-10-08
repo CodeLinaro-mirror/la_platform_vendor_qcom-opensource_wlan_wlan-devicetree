@@ -82,6 +82,7 @@
 		qcom,fw-prefix;
 		qcom,wlan;
 		tsens = "sys-therm-3";
+		qcom,wlan-msa-fixed-region = <&wlan_msa_mem>;
 
 		vdd-aon-supply = <&S7B>;
 		qcom,vdd-aon-config = <1010000 1040000 0 0 1>;
