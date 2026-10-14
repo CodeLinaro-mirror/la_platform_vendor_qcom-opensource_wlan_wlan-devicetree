@@ -219,6 +219,10 @@
 			#cooling-cells = <2>;
 		};
 
+		icnss_cdev_bw: icnss_cdev3 {
+			#cooling-cells = <2>;
+		};
+
 		qcom,smp2p_map_wlan_1_in {
 			interrupts-extended = <&pebble_wcn7750_smp2p_wlan_1_in 0 0>,
 					      <&pebble_wcn7750_smp2p_wlan_1_in 1 0>;
@@ -249,5 +253,10 @@
 			iommu-addresses = <&wlan_direct_link 0x0 0x0 0x0 0xa0000000>,
 				<&wlan_direct_link 0x0 0xb0000000 0x0 0x50000000>;
 		};
+	};
+
+	wlan_vendor_wonder: qcom,cnss-vendor-wlan-wonder {
+		compatible = "qcom,icnss-vendor-wlan-wonder";
+		status = "okay";
 	};
 };
