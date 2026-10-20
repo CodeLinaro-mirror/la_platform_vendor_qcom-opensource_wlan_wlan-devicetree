@@ -60,7 +60,7 @@
 		 * 0x0 0x50000000 = 100000000 - 0xB0000000
 		 */
 		icnss2_iommu_region_partition: icnss2_iommu_region_partition {
-			iommu-addresses = <&icnss 0x00000000 0x0 0xa0000000>,
+			iommu-addresses = <&icnss 0x00000000 0xa0000000>,
 					<&icnss 0xB0000000 0x50000000>;
 		};
 	};
