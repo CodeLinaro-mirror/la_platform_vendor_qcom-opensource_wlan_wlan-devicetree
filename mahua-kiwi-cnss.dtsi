@@ -4,6 +4,7 @@
  * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  */
 
+#include <dt-bindings/interconnect/qcom,glymur-rpmh.h>
 
 &tlmm {
 	cnss_pins {
@@ -74,6 +75,7 @@
 
 		interconnects = <&pcie_west_anoc MASTER_PCIE_4 &pcie_west_anoc SLAVE_PCIE_WEST_MEM_NOC>,
 				<&hsc_noc MASTER_PCIE_WEST &mc_virt SLAVE_EBI1>;
+		interconnect-names = "pcie_to_memnoc", "memnoc_to_ddr";
 
 		qcom,icc-path-count = <2>;
 		qcom,bus-bw-cfg-count = <9>;

@@ -96,6 +96,7 @@ dtbo-y += sun-peach-cnss.dtbo
 dtbo-y += sun-peach-cnss-v8.dtbo
 dtbo-y += sunp-hdk-peach-cnss-v8.dtbo
 dtbo-y += sunp-rcm-peach-cnss-v8.dtbo
+dtbo-y += sunp-iot-vc-wcn7881-cnss.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_PINEAPPLE),y)
@@ -123,6 +124,10 @@ endif
 ifeq ($(CONFIG_ARCH_WAIPIO),y)
 dtbo-y += waipio-kiwi-cnss.dtbo
 dtbo-y += waipio-qca6490-cnss.dtbo
+endif
+
+ifeq ($(CONFIG_ARCH_DIWALI),y)
+dtbo-y += diwali-qca6750.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_RAVELIN),y)
@@ -226,6 +231,7 @@ endif
 
 ifeq ($(TARGET_SUPPORT),sa525m)
 dtbo-y += sa525m-cnss.dtbo
+dtbo-y += sa525m-cnss-ep.dtbo
 endif
 
 ifeq ($(CONFIG_ARCH_KHAJE),y)
